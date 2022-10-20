@@ -22,12 +22,12 @@ public class PlayGame extends AppCompatActivity {
     GameManager gamer;
     Game g;
     int mines = 0;
-    int sc = 0;
+    int scans = 0;
     //TextView text1 = findViewById(R.id.found);
     //TextView text2 = findViewById(R.id.scans);
 
     Button buttons[][];
-
+    TextView text1, text2;
     //TextView t;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +36,8 @@ public class PlayGame extends AppCompatActivity {
         gamer = GameManager.getInstance();
         g = Game.getInstance();
 
-        TextView text1 = findViewById(R.id.found);
-        TextView text2 = findViewById(R.id.scans);
+        text1 = findViewById(R.id.found);
+        text2 = findViewById(R.id.scans);
         //cookie = Mine.getInstance();
         //cookie.get2dArray(cookie.getNumberOfRows(), cookie.getNumberOfColumns(), cookie.getNumberOfMines());
         //buttons = new Button[cookie.getNumberOfRows()][cookie.getNumberOfColumns()];
@@ -104,12 +104,25 @@ public class PlayGame extends AppCompatActivity {
 
         int index = g.ReturnIndex(x, y);
         Button button = buttons[x][y];
-        if (g.getMines().get(index).getMIne() == false)
-            button.setText(" " + g.getMines().get(index).getHint());
+        if (g.getMines().get(index).getMIne() == false){
+            if(g.getMines().get(index).getIsClicked() ==0 && scans<(g.getNumberOfRows()*g.getNumberOfColumns())){
+                scans++;
+                g.getMines().get(index).setIsClicked(1);
+                g.setScansUsed(scans);
+                text2.setText("# Scans used: " + g.getScansUsed());
+            }
+
+            button.setText(" " + g.getMines().get(index).getHint());}
         else {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    if(g.getMines().get(index).getIsClicked() ==0 && scans<(g.getNumberOfRows()*g.getNumberOfColumns())){
+                        scans++;
+                        g.getMines().get(index).setIsClicked(1);
+                        g.setScansUsed(scans);
+                        text2.setText("# Scans used: " + g.getScansUsed());
+                    }
                     button.setText(" " + g.getMines().get(index).getHint());
                 }
             });
@@ -128,6 +141,11 @@ public class PlayGame extends AppCompatActivity {
             {
                 if(g.getMines().get(i).getMIne()==true)
                 {
+                    if(mines<g.getNumberOfMines()){
+                        mines++;
+                        g.setMinesFound(mines);
+                        text1.setText("Found " + g.getMinesFound() + " of " + g.getNumberOfMines() + " mines.");
+                    }
                     int newWidth = button.getWidth();
                     int newHeight = button.getHeight();
                     Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bomb);
