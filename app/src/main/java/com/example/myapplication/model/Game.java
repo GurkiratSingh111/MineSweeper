@@ -33,20 +33,13 @@ public class Game {
 
     private ArrayList<Mine> mines;
 
-    private static Game instance;
+    //private static Game instance;
 
-    private Game(){
+    public Game(){
         this.numberOfMines = 6;
         this.numberOfRows = 4;
         this.numberOfColumns = 6;
         this.mines = new ArrayList<Mine>();
-    }
-
-    public static Game getInstance(){
-        if(instance==null){
-            instance = new Game();
-        }
-        return instance;
     }
 
     public ArrayList<Mine> getMines() {

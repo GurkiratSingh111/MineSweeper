@@ -20,9 +20,11 @@ import android.widget.Toast;
 import com.example.myapplication.model.Game;
 import com.example.myapplication.model.GameManager;
 import com.example.myapplication.model.Mine;
+import com.example.myapplication.model.SelectGame;
 
 public class PlayGame extends AppCompatActivity {
     GameManager gamer;
+    SelectGame sg;
     Game g;
     int mines = 0;
     int scans = 0;
@@ -37,13 +39,14 @@ public class PlayGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_game);
         gamer = GameManager.getInstance();
-        g = Game.getInstance();
-
+        sg = SelectGame.getInstance();
+        //g = Game.getInstance();
+        g = new Game(sg.getM(), sg.getR(), sg.getC());
         text1 = findViewById(R.id.found);
         text2 = findViewById(R.id.scans);
         buttons = new Button[g.getNumberOfRows()][g.getNumberOfColumns()];
         setTitle("Game");
-        g.addArray();
+        //g.addArray();
         g.addingMines();
         g.checkMines();
 
@@ -137,9 +140,11 @@ public class PlayGame extends AppCompatActivity {
 
                                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
+                                        gamer.addGame(g);
 
                                         Intent i5 = new Intent(PlayGame.this, MainActivity2.class);
                                         startActivity(i5);
+
 
                                     }
                                 });

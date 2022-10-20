@@ -11,18 +11,21 @@ import android.widget.Toast;
 import com.example.myapplication.model.Game;
 import com.example.myapplication.model.GameManager;
 import com.example.myapplication.model.Mine;
+import com.example.myapplication.model.SelectGame;
 
 //import ca.cmpt276.as3.model.*;
 public class MainActivity4 extends AppCompatActivity {
     GameManager gamer;
-    Game g;
+    SelectGame sg;
+    //Game g;
     int rows, columns, mines;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
         gamer = GameManager.getInstance();
-        g = Game.getInstance();
+        sg = SelectGame.getInstance();
+        //g = Game.getInstance();
         setTitle("Options");
         createNumMines();
         createBoardSizes();
@@ -42,14 +45,11 @@ public class MainActivity4 extends AppCompatActivity {
             rbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //rows = board_game_row;
-                    //columns = board_game_col;
-                    //Game g = new Game(board_game_row,board_game_col,0);
-                    g.setNumberOfRows(board_game_row);
-                    g.setNumberOfColumns(board_game_col);
+                    sg.setC(board_game_col);
+                    sg.setR(board_game_row);
+                    //g.setNumberOfRows(board_game_row);
+                    //g.setNumberOfColumns(board_game_col);
 
-                    //cookie.setNumberOfColumns(board_game_col);
-                    //cookie.setNumberOfRows(board_game_row);
                 }
             });
 
@@ -74,11 +74,9 @@ public class MainActivity4 extends AppCompatActivity {
             rbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //mines = number_mine;
-                    g.setNumberOfMines(number_mine);
+                    sg.setM(number_mine);
+                    //g.setNumberOfMines(number_mine);
 
-                    //cookie.setNumberOfMines(number_mine);
-                    //Toast.makeText(MainActivity4.this, "Number of mines: " + cookie.getNumberOfMines(), Toast.LENGTH_SHORT).show();
                 }
             });
 

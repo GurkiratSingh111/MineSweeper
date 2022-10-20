@@ -15,7 +15,8 @@ public class MainActivity extends AppCompatActivity {
 
     //Mine cookie;
     GameManager gamer;
-    Game g;
+    SelectGame sg;
+    //Game g;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setTitle("Cookie Finder");
         gamer = GameManager.getInstance();
-        g = Game.getInstance();
+        sg = SelectGame.getInstance();
+        //g = Game.getInstance();
         //cookie = Mine.getInstance();
         setupActivity2LaunchButton();
     }

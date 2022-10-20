@@ -10,16 +10,19 @@ import android.widget.Button;
 import com.example.myapplication.model.Game;
 import com.example.myapplication.model.GameManager;
 import com.example.myapplication.model.Mine;
+import com.example.myapplication.model.SelectGame;
 
 public class MainActivity2 extends AppCompatActivity {
     GameManager gamer;
-    Game g;
+    //Game g;
+    SelectGame sg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         gamer = GameManager.getInstance();
-        g = Game.getInstance();
+        sg = SelectGame.getInstance();
+        //g = Game.getInstance();
         setupActivity3LaunchButton();
         setupOptionsButton();
         setTitle("Main Menu");
