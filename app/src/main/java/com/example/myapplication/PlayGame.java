@@ -1,7 +1,10 @@
 package com.example.myapplication;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -38,9 +41,6 @@ public class PlayGame extends AppCompatActivity {
 
         text1 = findViewById(R.id.found);
         text2 = findViewById(R.id.scans);
-        //cookie = Mine.getInstance();
-        //cookie.get2dArray(cookie.getNumberOfRows(), cookie.getNumberOfColumns(), cookie.getNumberOfMines());
-        //buttons = new Button[cookie.getNumberOfRows()][cookie.getNumberOfColumns()];
         buttons = new Button[g.getNumberOfRows()][g.getNumberOfColumns()];
         setTitle("Game");
         g.addArray();
@@ -51,17 +51,6 @@ public class PlayGame extends AppCompatActivity {
         populateButtons();
 
 
-
-        /*
-        Button btn = findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setMineButton();
-            }
-        });
-
-         */
 
     }
 
@@ -127,14 +116,8 @@ public class PlayGame extends AppCompatActivity {
                 }
             });
         }
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                button.setText(g.getMines().get(index).getHint());
-//            }
-//        });
+
         lockButtonSize();
-        //button.setBackgroundResource(R.drawable.bomb);
         for(int i=0;i<g.getMines().size();i++)
         {
             if(g.getMines().get(i).getCo_x()==x && g.getMines().get(i).getCo_y()==y)
@@ -146,6 +129,24 @@ public class PlayGame extends AppCompatActivity {
                         g.setMinesFound(mines);
                         text1.setText("Found " + g.getMinesFound() + " of " + g.getNumberOfMines() + " mines.");
                     }
+
+                    if(mines==g.getNumberOfMines()){
+                        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                        builder.setMessage(R.string.confirm_dialog_message)
+                                .setTitle(R.string.confirm_dialog_title)
+
+                                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+
+                                        Intent i5 = new Intent(PlayGame.this, MainActivity2.class);
+                                        startActivity(i5);
+
+                                    }
+                                });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
+
                     int newWidth = button.getWidth();
                     int newHeight = button.getHeight();
                     Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bomb);
@@ -153,34 +154,9 @@ public class PlayGame extends AppCompatActivity {
                     Resources resource = getResources();
                     button.setBackground(new BitmapDrawable(resource, scaledBitmap));
                 }
-                /*
-                else
-                {
-                    Toast.makeText(this, "No mines", Toast.LENGTH_SHORT).show();
-                }
 
-                 */
             }
         }
-
-        /*
-        if(cookie.getTdArray(x,y) != 100){
-            button.setText(cookie.mineCounter(x,y));
-        }
-        else{
-            int newWidth = button.getWidth();
-            int newHeight = button.getHeight();
-            Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.bomb);
-            Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
-            Resources resource = getResources();
-            button.setBackground(new BitmapDrawable(resource, scaledBitmap));
-        }
-
-         */
-
-
-
-
 
 
 
@@ -202,14 +178,6 @@ public class PlayGame extends AppCompatActivity {
         }
     }
 
-    /*
-    private void setMineButton() {
-        TextView t = findViewById(R.id.num_mines_info);
-        mines = cookie.getNumberOfMines();
-        t.setText("Number of mines: " + mines + " number of rows " + cookie.getNumberOfRows() + " number of columns " + cookie.getNumberOfColumns());
-    }
-
-     */
 
 
 }

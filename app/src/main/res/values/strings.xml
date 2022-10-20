@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="confirm_dialog_message">Good work finding all the cookies! Remember to share.</string>
+    <string name="confirm_dialog_title">Congratulations</string>
+    <string name="cancel"> OK </string>
 </resources>
