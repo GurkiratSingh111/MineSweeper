@@ -110,6 +110,22 @@ public class PlayGame extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(g.getMines().get(index).getIsClicked() ==0 && scans<(g.getNumberOfRows()*g.getNumberOfColumns())){
+                        //Adding lines in this
+                        /*
+                        for(int i=0;i<g.getMines().size();i++) {
+                            g.getMines().get(i).setMIne(false);
+                            g.checkMines();
+                            for (int m = 0; m < g.getMines().size(); m++) {
+                                if (g.getMines().get(i).getCo_x() == x && g.getMines().get(i).getIsClicked() == 1) {
+                                    buttons[x][g.getMines().get(i).getCo_y()].setText("" + g.getMines().get(i).getHint());
+                                } else if (g.getMines().get(i).getCo_y() == y && g.getMines().get(i).getIsClicked() == 1) {
+                                    buttons[g.getMines().get(i).getCo_x()][y].setText("" + g.getMines().get(i).getHint());
+                                }
+                            }
+                        }
+                        */
+
+                        // Till this
                         scans++;
                         g.getMines().get(index).setIsClicked(1);
                         g.setScansUsed(scans);
@@ -127,6 +143,7 @@ public class PlayGame extends AppCompatActivity {
             {
                 if(g.getMines().get(i).getMIne()==true)
                 {
+
                     if(mines<g.getNumberOfMines()){
                         mines++;
                         g.setMinesFound(mines);

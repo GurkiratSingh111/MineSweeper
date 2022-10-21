@@ -2,10 +2,16 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.myapplication.model.Game;
@@ -13,23 +19,47 @@ import com.example.myapplication.model.GameManager;
 import com.example.myapplication.model.Mine;
 import com.example.myapplication.model.SelectGame;
 
+import java.util.ArrayList;
+
 //import ca.cmpt276.as3.model.*;
 public class MainActivity4 extends AppCompatActivity {
     GameManager gamer;
     SelectGame sg;
     //Game g;
     int rows, columns, mines;
+    //MediaPlayer mp1;
+    MediaPlayer mp1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
         gamer = GameManager.getInstance();
         sg = SelectGame.getInstance();
+
         //g = Game.getInstance();
         setTitle("Options");
         createNumMines();
         createBoardSizes();
-        //g = new Game(mines, rows, columns);
+
+        Button btn = findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mp1 = MediaPlayer.create(MainActivity4.this, R.raw.scan_sound);
+                mp1.start();
+                Intent intent = new Intent(MainActivity4.this, ShowGames.class);
+                startActivity(intent);
+            }
+        });
+
+        Button rem = findViewById(R.id.removeAll);
+        rem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gamer.removeAllGames();
+            }
+        });
+
     }
 
     private void createBoardSizes() {

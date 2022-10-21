@@ -15,6 +15,19 @@ public class Game {
     private int scansUsed;
     private int minesfound;
 
+    public String gametoString(){
+        String g;
+        g = "Number of rows: " + numberOfRows + ", Number of Columns: " + numberOfColumns + ", Number of Mines: " + numberOfMines +  ", Score: " + this.scoreCalculator();
+        return g;
+    }
+
+    public int scoreCalculator(){
+        int score = 0;
+        score = (numberOfRows*numberOfColumns)-scansUsed;
+
+        return score;
+    }
+
     public int getScansUsed() {
         return scansUsed;
     }
@@ -51,6 +64,8 @@ public class Game {
     }
 
     private int scans;
+
+    
 
     // private int[][] tdArray;
 
