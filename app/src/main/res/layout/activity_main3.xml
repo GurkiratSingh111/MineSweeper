@@ -80,7 +80,7 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="42dp"
-        android:text="Activity Backround References: ice_cream_parlour from https://www.pinterest.ca/pin/free-vector--452541462560191933/    Button Icon References: ice_cream from https://www.subpng.com/png-rhogtb/  Sound from https://mixkit.co/free-sound-effects/click/"
+        android:text="@string/Hyperlink1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
