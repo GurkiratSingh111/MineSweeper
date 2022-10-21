@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import com.example.myapplication.model.Game;
@@ -12,6 +13,7 @@ import com.example.myapplication.model.SelectGame;
 public class MainActivity3 extends AppCompatActivity {
     GameManager gamer;
     SelectGame sg;
+    MediaPlayer mp;
     //Game g;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
