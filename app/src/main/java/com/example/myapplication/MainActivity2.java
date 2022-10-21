@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ public class MainActivity2 extends AppCompatActivity {
     GameManager gamer;
     //Game g;
     SelectGame sg;
+    MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,8 @@ public class MainActivity2 extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mp = MediaPlayer.create(MainActivity2.this, R.raw.click_sound);
+                mp.start();
                 Intent ip = new Intent(MainActivity2.this, PlayGame.class);
                 startActivity(ip);
             }
@@ -45,6 +49,8 @@ public class MainActivity2 extends AppCompatActivity {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mp = MediaPlayer.create(MainActivity2.this, R.raw.click_sound);
+                mp.start();
                 Intent i = new Intent(MainActivity2.this, MainActivity4.class);
                 startActivity(i);
             }
@@ -56,6 +62,8 @@ public class MainActivity2 extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mp = MediaPlayer.create(MainActivity2.this, R.raw.click_sound);
+                mp.start();
                 Intent intent = new Intent(MainActivity2.this, MainActivity3.class);
                 startActivity(intent);
             }

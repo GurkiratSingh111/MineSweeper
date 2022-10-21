@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,8 @@ public class PlayGame extends AppCompatActivity {
     GameManager gamer;
     SelectGame sg;
     Game g;
+    MediaPlayer mp1;
+    MediaPlayer mp2;
     int mines = 0;
     int scans = 0;
     //TextView text1 = findViewById(R.id.found);
@@ -97,6 +100,8 @@ public class PlayGame extends AppCompatActivity {
         int index = g.ReturnIndex(x, y);
         Button button = buttons[x][y];
         if (g.getMines().get(index).getMIne() == false){
+            mp1 = MediaPlayer.create(PlayGame.this, R.raw.scan_sound);
+            mp1.start();
             if(g.getMines().get(index).getIsClicked() ==0 && scans<(g.getNumberOfRows()*g.getNumberOfColumns())){
                 scans++;
                 g.getMines().get(index).setIsClicked(1);
@@ -109,6 +114,8 @@ public class PlayGame extends AppCompatActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    mp1 = MediaPlayer.create(PlayGame.this, R.raw.scan_sound);
+                    mp1.start();
                     if(g.getMines().get(index).getIsClicked() ==0 && scans<(g.getNumberOfRows()*g.getNumberOfColumns())){
                         //Adding lines in this
                         /*
@@ -143,6 +150,8 @@ public class PlayGame extends AppCompatActivity {
             {
                 if(g.getMines().get(i).getMIne()==true)
                 {
+                    mp2 = MediaPlayer.create(PlayGame.this, R.raw.ice_cream_found);
+                    mp2.start();
 
                     if(mines<g.getNumberOfMines()){
                         mines++;

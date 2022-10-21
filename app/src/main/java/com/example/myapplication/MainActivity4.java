@@ -28,7 +28,7 @@ public class MainActivity4 extends AppCompatActivity {
     //Game g;
     int rows, columns, mines;
     //MediaPlayer mp1;
-    MediaPlayer mp1;
+    MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +45,8 @@ public class MainActivity4 extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mp1 = MediaPlayer.create(MainActivity4.this, R.raw.scan_sound);
-                mp1.start();
+                mp = MediaPlayer.create(MainActivity4.this, R.raw.click_sound);
+                mp.start();
                 Intent intent = new Intent(MainActivity4.this, ShowGames.class);
                 startActivity(intent);
             }
@@ -56,6 +56,8 @@ public class MainActivity4 extends AppCompatActivity {
         rem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mp = MediaPlayer.create(MainActivity4.this, R.raw.click_sound);
+                mp.start();
                 gamer.removeAllGames();
             }
         });
@@ -75,6 +77,8 @@ public class MainActivity4 extends AppCompatActivity {
             rbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    mp = MediaPlayer.create(MainActivity4.this, R.raw.click_sound);
+                    mp.start();
                     sg.setC(board_game_col);
                     sg.setR(board_game_row);
                     //g.setNumberOfRows(board_game_row);
@@ -104,6 +108,8 @@ public class MainActivity4 extends AppCompatActivity {
             rbtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    mp = MediaPlayer.create(MainActivity4.this, R.raw.click_sound);
+                    mp.start();
                     sg.setM(number_mine);
                     //g.setNumberOfMines(number_mine);
 
