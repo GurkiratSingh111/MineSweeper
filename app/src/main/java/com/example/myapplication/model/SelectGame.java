@@ -8,9 +8,9 @@ public class SelectGame {
     private static SelectGame instance;
 
     private SelectGame() {
-        this.r = 0;
-        this.c = 0;
-        this.m = 0;
+        this.r = 4;
+        this.c = 6;
+        this.m = 6;
     }
 
     public static SelectGame getInstance(){

@@ -184,6 +184,22 @@ public class PlayGame extends AppCompatActivity {
                     Bitmap scaledBitmap = Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true);
                     Resources resource = getResources();
                     button.setBackground(new BitmapDrawable(resource, scaledBitmap));
+                    for(int k=0;k<g.getMines().size();k++) {
+                        g.getMines().get(i).setMIne(false);
+                        g.checkMines();
+                        for (int m = 0; m < g.getMines().size(); m++) {
+                            if (g.getMines().get(m).getCo_x() == x && g.getMines().get(m).getIsClicked() >= 1) {
+                                buttons[x][g.getMines().get(m).getCo_y()].setText("" + g.getMines().get(m).getHint());
+                            } else if (g.getMines().get(m).getCo_y() == y && g.getMines().get(m).getIsClicked() >= 1) {
+                                buttons[g.getMines().get(m).getCo_x()][y].setText("" + g.getMines().get(m).getHint());
+                            }
+                            /*if (g.getMines().get(i).getCo_x() == x && g.getMines().get(i).getIsClicked() >= 1) {
+                                buttons[x][g.getMines().get(i).getCo_y()].setText("" + g.getMines().get(i).getHint());
+                            } else if (g.getMines().get(i).getCo_y() == y && g.getMines().get(i).getIsClicked() >= 1) {
+                                buttons[g.getMines().get(i).getCo_x()][y].setText("" + g.getMines().get(i).getHint());
+                            }*/
+                        }
+                    }
                 }
 
             }
