@@ -35,7 +35,6 @@ public class ShowGames extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
         delete = gamer.getDel();
         loadData(delete);
-        //gamesStr = gamer.setGameTable();
         int a = 0;
         if(gamer.getGames().size()==0 && gameString.size()>0){
             a++;
@@ -43,8 +42,6 @@ public class ShowGames extends AppCompatActivity {
         else{
             gameString = gamesString(gamer, gameString);
         }
-
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_list,gameString);
         ListView listView = (ListView)findViewById(R.id.listofGames);
         listView.setAdapter(adapter);
@@ -68,7 +65,6 @@ public class ShowGames extends AppCompatActivity {
         editor.putString("task list", json);
         editor.apply();
     }
-
     private void loadData(int del){
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -83,9 +79,7 @@ public class ShowGames extends AppCompatActivity {
                 gamer.setDel(0);
             }
         }
-
     }
-
     private ArrayList<String> gamesString(GameManager games, ArrayList<String> arrayList) {
 
         if(games!=null && arrayList.size()!=0){
@@ -105,37 +99,8 @@ public class ShowGames extends AppCompatActivity {
                 arrayList.add(games.getGames().get(i).gametoString());
             }
         }
-        /*
-        else if(games==null && arrayList.size()!=0){
-            return arrayList;
-        }
-
-         */
-
         return arrayList;
     }
-
-    /*
-    private ArrayList<String> gamesString(GameManager games, ArrayList<String> arrayList) {
-        int size = games.getGames().size()-1;
-        int size_a = arrayList.size() - 1;
-        if(games!=null && !(games.getGames().get(size).gametoString().equals(arrayList.get(size_a)))){
-            if(games.getGames().size()!=0 && arrayList.size()!=0){
-
-            }
-            for(int i = 0; i<games.getGames().size();i++){
-                arrayList.add(games.getGames().get(i).gametoString());
-            }
-        }
-        else{
-            return arrayList;
-        }
-
-        return arrayList;
-    }
-
-     */
-
     private ArrayList<String> gamestoString(GameManager games, ArrayList<String> arrayList) {
         if(games!=null){
             for(int i = arrayList.size()-1; i<games.getGames().size();i++){
@@ -148,7 +113,6 @@ public class ShowGames extends AppCompatActivity {
 
         return arrayList;
     }
-
     private boolean checkArrayList(GameManager g, ArrayList<String> arrayList){
         ArrayList<String> games = new ArrayList<>();
         games = g.setGameTable();
@@ -163,7 +127,6 @@ public class ShowGames extends AppCompatActivity {
                 return true;
             }
         }
-
         return false;
     }
     private boolean checklastGame(GameManager g, ArrayList<String> arrayList){

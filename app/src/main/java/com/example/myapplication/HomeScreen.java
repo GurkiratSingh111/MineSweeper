@@ -3,12 +3,13 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 public class HomeScreen extends AppCompatActivity {
-
+    MediaPlayer mp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +19,8 @@ public class HomeScreen extends AppCompatActivity {
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mp = MediaPlayer.create(HomeScreen.this, R.raw.click_sound);
+                mp.start();
                 Intent intent = new Intent(HomeScreen.this, MainActivity.class);
                 startActivity(intent);
             }

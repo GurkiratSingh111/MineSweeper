@@ -33,12 +33,8 @@ public class PlayGame extends AppCompatActivity {
     MediaPlayer mp2;
     int mines = 0;
     int scans = 0;
-    //TextView text1 = findViewById(R.id.found);
-    //TextView text2 = findViewById(R.id.scans);
-
     Button buttons[][];
     TextView text1, text2;
-    //TextView t;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,21 +44,16 @@ public class PlayGame extends AppCompatActivity {
         sg = SelectGame.getInstance();
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-        //g = Game.getInstance();
         g = new Game(sg.getM(), sg.getR(), sg.getC());
         text1 = findViewById(R.id.found);
         text2 = findViewById(R.id.scans);
         buttons = new Button[g.getNumberOfRows()][g.getNumberOfColumns()];
         setTitle("Game");
-        //g.addArray();
         g.addingMines();
         g.checkMines();
 
         text1.setText("Found 0 of " + g.getNumberOfMines() + " mines.");
         populateButtons();
-
-
-
     }
 
     private void populateButtons() {
@@ -100,8 +91,6 @@ public class PlayGame extends AppCompatActivity {
     }
 
     private void gridButtonClicked(int x, int y) {
-        //Toast.makeText(this, "Button Clicked ON Row " + x + " and column " + y, Toast.LENGTH_SHORT).show();
-
         int index = g.ReturnIndex(x, y);
         Button button = buttons[x][y];
         if (g.getMines().get(index).getMIne() == false){
@@ -122,22 +111,6 @@ public class PlayGame extends AppCompatActivity {
                     mp1 = MediaPlayer.create(PlayGame.this, R.raw.scan_sound);
                     mp1.start();
                     if(g.getMines().get(index).getIsClicked() ==0 && scans<(g.getNumberOfRows()*g.getNumberOfColumns())){
-                        //Adding lines in this
-                        /*
-                        for(int i=0;i<g.getMines().size();i++) {
-                            g.getMines().get(i).setMIne(false);
-                            g.checkMines();
-                            for (int m = 0; m < g.getMines().size(); m++) {
-                                if (g.getMines().get(i).getCo_x() == x && g.getMines().get(i).getIsClicked() == 1) {
-                                    buttons[x][g.getMines().get(i).getCo_y()].setText("" + g.getMines().get(i).getHint());
-                                } else if (g.getMines().get(i).getCo_y() == y && g.getMines().get(i).getIsClicked() == 1) {
-                                    buttons[g.getMines().get(i).getCo_x()][y].setText("" + g.getMines().get(i).getHint());
-                                }
-                            }
-                        }
-                        */
-
-                        // Till this
                         scans++;
                         g.getMines().get(index).setIsClicked(1);
                         g.setScansUsed(scans);
@@ -172,17 +145,13 @@ public class PlayGame extends AppCompatActivity {
                                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         gamer.addGame(g);
-
                                         Intent i5 = new Intent(PlayGame.this, MainActivity2.class);
                                         startActivity(i5);
-
-
                                     }
                                 });
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     }
-
                     int newWidth = button.getWidth();
                     int newHeight = button.getHeight();
                     Bitmap originalBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ice_cream);
@@ -198,20 +167,11 @@ public class PlayGame extends AppCompatActivity {
                             } else if (g.getMines().get(m).getCo_y() == y && g.getMines().get(m).getIsClicked() >= 1) {
                                 buttons[g.getMines().get(m).getCo_x()][y].setText("" + g.getMines().get(m).getHint());
                             }
-                            /*if (g.getMines().get(i).getCo_x() == x && g.getMines().get(i).getIsClicked() >= 1) {
-                                buttons[x][g.getMines().get(i).getCo_y()].setText("" + g.getMines().get(i).getHint());
-                            } else if (g.getMines().get(i).getCo_y() == y && g.getMines().get(i).getIsClicked() >= 1) {
-                                buttons[g.getMines().get(i).getCo_x()][y].setText("" + g.getMines().get(i).getHint());
-                            }*/
                         }
                     }
                 }
-
             }
         }
-
-
-
     }
 
     private void lockButtonSize() {

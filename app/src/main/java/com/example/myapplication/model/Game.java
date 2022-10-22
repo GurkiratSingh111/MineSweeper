@@ -1,12 +1,7 @@
 package com.example.myapplication.model;
-//package model;
-
-//package com.example.myapplication.model;
 
 import java.util.ArrayList;
 import java.util.Random;
-
-
 
 public class Game {
     private int numberOfMines;
@@ -46,8 +41,6 @@ public class Game {
 
     private ArrayList<Mine> mines;
 
-    //private static Game instance;
-
     public Game(){
         this.numberOfMines = 6;
         this.numberOfRows = 4;
@@ -64,10 +57,6 @@ public class Game {
     }
 
     private int scans;
-
-    
-
-    // private int[][] tdArray;
 
     public int getScans() {
         return scans;
@@ -159,9 +148,6 @@ public class Game {
     public void checkMines() {
         for (int i = 0; i < numberOfRows * numberOfColumns; i++) {
             int count = 0;
-//            if (mines.get(i).getMIne() == true) {
-//                count = -1;
-//            }
             int x = mines.get(i).getCo_x();
             int y = mines.get(i).getCo_y();
             for (int j = 0; j < mines.size(); j++) {

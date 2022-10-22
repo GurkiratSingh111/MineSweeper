@@ -14,13 +14,9 @@ import com.example.myapplication.model.*;
 
 
 public class MainActivity extends AppCompatActivity {
-
-    //Mine cookie;
     GameManager gamer;
     SelectGame sg;
     MediaPlayer mp;
-    //Game g;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
         setTitle("Ice Cream Finder");
         gamer = GameManager.getInstance();
         sg = SelectGame.getInstance();
-        //g = Game.getInstance();
-        //cookie = Mine.getInstance();
         setupActivity2LaunchButton();
     }
 

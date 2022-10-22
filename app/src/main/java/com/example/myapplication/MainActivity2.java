@@ -29,7 +29,6 @@ public class MainActivity2 extends AppCompatActivity {
         sg = SelectGame.getInstance();
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-        //g = Game.getInstance();
         setupActivity3LaunchButton();
         setupOptionsButton();
         setTitle("Main Menu");

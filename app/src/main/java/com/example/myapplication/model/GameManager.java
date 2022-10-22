@@ -22,12 +22,6 @@ public class GameManager {
         for(int i =0; i<games.size();i++){
             str.add("Game no: " + i+1 +". " + games.get(i).gametoString());
         }
-        /*
-        for(Game g: games){
-            str.add(g.gametoString());
-        }
-
-         */
         return str;
     }
 

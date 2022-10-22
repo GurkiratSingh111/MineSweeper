@@ -1,5 +1,5 @@
 package com.example.myapplication.model;
-//package model;
+
 import java.util.*;
 public class Mine {
     private int co_x;
