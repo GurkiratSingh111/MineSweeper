@@ -25,14 +25,20 @@ public class ShowGames extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_games);
-        setTitle("Options");
+        setTitle("Games List");
         gamer = GameManager.getInstance();
         sg = SelectGame.getInstance();
         delete = gamer.getDel();
         loadData(delete);
         //gamesStr = gamer.setGameTable();
+        int a = 0;
+        if(gamer.getGames().size()==0 && gameString.size()>0){
+            a++;
+        }
+        else{
+            gameString = gamesString(gamer, gameString);
+        }
 
-        gameString = gamestoString(gamer, gameString);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_list,gameString);
         ListView listView = (ListView)findViewById(R.id.listofGames);
@@ -76,9 +82,44 @@ public class ShowGames extends AppCompatActivity {
     }
 
     private ArrayList<String> gamesString(GameManager games, ArrayList<String> arrayList) {
-        if(games!=null){
-            for(Game g: games.getGames()){
-                arrayList.add(g.gametoString());
+
+        if(games!=null && arrayList.size()!=0){
+            if(arrayList.size()!=0){
+                int size = games.getGames().size()-1;
+                int size_a = arrayList.size() - 1;
+                if(!(games.getGames().get(size).gametoString().equals(arrayList.get(size_a)))){
+                    for(int i = 0; i<games.getGames().size();i++){
+                        arrayList.add(games.getGames().get(i).gametoString());
+                    }
+                }
+            }
+
+        }
+        else if(games!=null && arrayList.size()==0){
+            for(int i = 0; i<games.getGames().size();i++){
+                arrayList.add(games.getGames().get(i).gametoString());
+            }
+        }
+        /*
+        else if(games==null && arrayList.size()!=0){
+            return arrayList;
+        }
+
+         */
+
+        return arrayList;
+    }
+
+    /*
+    private ArrayList<String> gamesString(GameManager games, ArrayList<String> arrayList) {
+        int size = games.getGames().size()-1;
+        int size_a = arrayList.size() - 1;
+        if(games!=null && !(games.getGames().get(size).gametoString().equals(arrayList.get(size_a)))){
+            if(games.getGames().size()!=0 && arrayList.size()!=0){
+
+            }
+            for(int i = 0; i<games.getGames().size();i++){
+                arrayList.add(games.getGames().get(i).gametoString());
             }
         }
         else{
@@ -87,6 +128,8 @@ public class ShowGames extends AppCompatActivity {
 
         return arrayList;
     }
+
+     */
 
     private ArrayList<String> gamestoString(GameManager games, ArrayList<String> arrayList) {
         if(games!=null){
@@ -99,5 +142,31 @@ public class ShowGames extends AppCompatActivity {
         }
 
         return arrayList;
+    }
+
+    private boolean checkArrayList(GameManager g, ArrayList<String> arrayList){
+        ArrayList<String> games = new ArrayList<>();
+        games = g.setGameTable();
+        int count = 0;
+        if(arrayList.size()==g.getGames().size()){
+            for(int i = 0; i<games.size(); i++){
+                if(games.get(i).equals(arrayList.get(i))){
+                    count++;
+                }
+            }
+            if(count==games.size()&&count==arrayList.size()){
+                return true;
+            }
+        }
+
+        return false;
+    }
+    private boolean checklastGame(GameManager g, ArrayList<String> arrayList){
+        int size = g.getGames().size();
+        int sizea = arrayList.size();
+        if(g.getGames().get(size - 1).gametoString().equals(arrayList.get(sizea-1))){
+            return true;
+        }
+        return false;
     }
 }
