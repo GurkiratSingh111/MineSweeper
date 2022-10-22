@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.pink)));
-        setTitle("Cookie Finder");
+        setTitle("Ice Cream Finder");
         gamer = GameManager.getInstance();
         sg = SelectGame.getInstance();
         //g = Game.getInstance();
