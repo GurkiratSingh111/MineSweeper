@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -35,7 +36,8 @@ public class MainActivity4 extends AppCompatActivity {
         setContentView(R.layout.activity_main4);
         gamer = GameManager.getInstance();
         sg = SelectGame.getInstance();
-
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
         //g = Game.getInstance();
         setTitle("Options");
         createNumMines();

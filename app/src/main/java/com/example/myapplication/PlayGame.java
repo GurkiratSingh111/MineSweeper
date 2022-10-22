@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,6 +44,8 @@ public class PlayGame extends AppCompatActivity {
         setContentView(R.layout.activity_play_game);
         gamer = GameManager.getInstance();
         sg = SelectGame.getInstance();
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
         //g = Game.getInstance();
         g = new Game(sg.getM(), sg.getR(), sg.getC());
         text1 = findViewById(R.id.found);

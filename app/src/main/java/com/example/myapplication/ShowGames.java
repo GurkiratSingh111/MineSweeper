@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
@@ -28,6 +29,8 @@ public class ShowGames extends AppCompatActivity {
         setTitle("Games List");
         gamer = GameManager.getInstance();
         sg = SelectGame.getInstance();
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
         delete = gamer.getDel();
         loadData(delete);
         //gamesStr = gamer.setGameTable();

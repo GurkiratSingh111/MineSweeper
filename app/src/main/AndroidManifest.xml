@@ -15,7 +15,8 @@
         <activity
             android:name=".ShowGames"
             android:exported="false"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:parentActivityName=".MainActivity4">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -23,7 +24,8 @@
         <activity
             android:name=".PlayGame"
             android:exported="false"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:parentActivityName=".MainActivity2">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -31,7 +33,8 @@
         <activity
             android:name=".MainActivity4"
             android:exported="false"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:parentActivityName=".MainActivity2">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -39,7 +42,8 @@
         <activity
             android:name=".MainActivity3"
             android:exported="false"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:parentActivityName=".MainActivity2">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -47,7 +51,8 @@
         <activity
             android:name=".MainActivity2"
             android:exported="false"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
