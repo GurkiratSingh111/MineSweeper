@@ -59,6 +59,9 @@ public class MainActivity4 extends AppCompatActivity {
                 mp = MediaPlayer.create(MainActivity4.this, R.raw.click_sound);
                 mp.start();
                 gamer.removeAllGames();
+                gamer.setDel(1);
+                Intent inte = new Intent(MainActivity4.this, ShowGames.class);
+                startActivity(inte);
             }
         });
 

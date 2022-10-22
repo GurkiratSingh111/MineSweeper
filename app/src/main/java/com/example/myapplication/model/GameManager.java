@@ -6,6 +6,15 @@ import java.util.ArrayList;
 
 public class GameManager {
     private ArrayList<Game> games;
+    private int del;
+
+    public int getDel() {
+        return del;
+    }
+
+    public void setDel(int del) {
+        this.del = del;
+    }
 
 
     public ArrayList<String> setGameTable() {
@@ -20,6 +29,10 @@ public class GameManager {
 
          */
         return str;
+    }
+
+    public ArrayList<Game> getGames() {
+        return games;
     }
 
     private static GameManager instance;
