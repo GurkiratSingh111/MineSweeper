@@ -13,53 +13,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".ShowGames"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            android:parentActivityName=".MainActivity4">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".PlayGame"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            android:parentActivityName=".MainActivity2">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MainActivity4"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            android:parentActivityName=".MainActivity2">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MainActivity3"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            android:parentActivityName=".MainActivity2">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MainActivity2"
-            android:exported="false"
-            android:screenOrientation="landscape"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:configChanges="keyboard|orientation|keyboardHidden|screenSize|screenLayout"
+            android:name=".HomeScreen"
             android:exported="true"
             android:screenOrientation="landscape">
             <intent-filter>
@@ -67,6 +21,62 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ShowGames"
+            android:exported="false"
+            android:parentActivityName=".MainActivity4"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".PlayGame"
+            android:exported="false"
+            android:parentActivityName=".MainActivity2"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity4"
+            android:exported="false"
+            android:parentActivityName=".MainActivity2"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity3"
+            android:exported="false"
+            android:parentActivityName=".MainActivity2"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity2"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="landscape">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboard|orientation|keyboardHidden|screenSize|screenLayout"
+            android:exported="false"
+            android:screenOrientation="landscape">
+
 
             <meta-data
                 android:name="android.app.lib_name"
