@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home"
+    android:background="@drawable/backround_home"
     tools:context=".HomeScreen">
 
     <Button
         android:id="@+id/button2"
         android:layout_width="182dp"
         android:layout_height="84dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="320dp"
         android:backgroundTint="#FDC0D5"
         android:text="PLAY "
         android:textAlignment="center"
@@ -21,4 +21,13 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/truck"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
