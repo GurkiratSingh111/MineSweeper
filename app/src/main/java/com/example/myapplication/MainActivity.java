@@ -12,7 +12,7 @@ import android.widget.Button;
 import com.example.myapplication.model.*;
 
 
-
+// MainActivity class has the button that connects it to mainactivity2
 public class MainActivity extends AppCompatActivity {
     GameManager gamer;
     SelectGame sg;

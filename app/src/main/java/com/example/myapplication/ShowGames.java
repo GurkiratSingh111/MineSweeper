@@ -17,7 +17,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-
+// This class shows how many games and details of previous games played
 public class ShowGames extends AppCompatActivity {
     GameManager gamer;
     SelectGame sg;

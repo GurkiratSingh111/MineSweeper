@@ -1,5 +1,5 @@
 package com.example.myapplication.model;
-
+// Select Game class saves the number of rows, columns and mines the user inputs
 public class SelectGame {
     private int r;
     private int c;

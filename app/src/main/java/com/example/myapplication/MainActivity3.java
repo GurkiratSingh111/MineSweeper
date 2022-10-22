@@ -13,7 +13,7 @@ import com.example.myapplication.model.Game;
 import com.example.myapplication.model.GameManager;
 import com.example.myapplication.model.Mine;
 import com.example.myapplication.model.SelectGame;
-
+// This class shows textviews with instructions
 public class MainActivity3 extends AppCompatActivity {
     GameManager gamer;
     SelectGame sg;

@@ -1,6 +1,7 @@
 package com.example.myapplication.model;
 
 import java.util.*;
+// Mine class has the attributes for co-ordinates for the mines, if there is a mine in that position, hint on how many ice creams left and how many times clicked
 public class Mine {
     private int co_x;
     private int co_y;

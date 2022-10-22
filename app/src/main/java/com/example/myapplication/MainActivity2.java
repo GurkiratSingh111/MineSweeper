@@ -14,7 +14,7 @@ import com.example.myapplication.model.Game;
 import com.example.myapplication.model.GameManager;
 import com.example.myapplication.model.Mine;
 import com.example.myapplication.model.SelectGame;
-
+// This class has buttons that can show help, options and play game
 public class MainActivity2 extends AppCompatActivity {
     GameManager gamer;
     //Game g;
