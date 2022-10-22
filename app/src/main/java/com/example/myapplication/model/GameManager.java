@@ -3,7 +3,7 @@ package com.example.myapplication.model;
 //package model;
 
 import java.util.ArrayList;
-
+// Gamemanager function saves the games in an arraylist
 public class GameManager {
     private ArrayList<Game> games;
     private int del;

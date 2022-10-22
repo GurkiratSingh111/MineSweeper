@@ -2,7 +2,7 @@ package com.example.myapplication.model;
 
 import java.util.ArrayList;
 import java.util.Random;
-
+// Game class takes attributes such as number of rows, number of columns and number of mines and etc
 public class Game {
     private int numberOfMines;
     private int numberOfRows;

@@ -24,7 +24,7 @@ import com.example.myapplication.model.Game;
 import com.example.myapplication.model.GameManager;
 import com.example.myapplication.model.Mine;
 import com.example.myapplication.model.SelectGame;
-
+// All the functionalities needed to play the game are on this class
 public class PlayGame extends AppCompatActivity {
     GameManager gamer;
     SelectGame sg;

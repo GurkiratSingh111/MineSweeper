@@ -22,7 +22,9 @@ import com.example.myapplication.model.Mine;
 import com.example.myapplication.model.SelectGame;
 
 import java.util.ArrayList;
-
+// This class shows radio buttons for mines and rows and columns combination.
+// it also has a button that can delete all games played previously
+// It also has a button that can show previous played games as well
 public class MainActivity4 extends AppCompatActivity {
     GameManager gamer;
     SelectGame sg;

@@ -7,7 +7,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
+// The home screen with animation and a button to get to main menu
 public class HomeScreen extends AppCompatActivity {
     MediaPlayer mp;
     @Override
